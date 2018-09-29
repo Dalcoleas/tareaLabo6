@@ -42,9 +42,8 @@ var convertor = {
 
         else if (tipoDeMedida == 'T') {
             if (unidadDeMedida == 'c') {
-
                 if (unidadAconvertir == 'f') {
-                    resultado = (medida*(9/5)) + 32;
+                    resultado = (medida * (9 / 5)) + 32;
                     unidadAconvertir = "f";
                     return (resultado + unidadAconvertir);
                 }
@@ -54,26 +53,30 @@ var convertor = {
                     return (resultado + unidadAconvertir);
                 }
             }
-
             else if (unidadDeMedida == 'f') {
-
                 if (unidadAconvertir == 'c') {
-                    resultado = (medida-32)*(5/9);
+                    resultado = (medida - 32) * (5 / 9);
                     unidadAconvertir = "c";
                     return (resultado + unidadAconvertir);
                 }
-            }
-            else if (unidadDeMedida == 'ft')
-                if (unidadAconvertir == 'm') {
-                    resultado = medida * 0.3048;
-                    unidadAconvertir = "m";
-                    return (resultado + unidadAconvertir);
-                }
                 else if (unidadAconvertir == 'k') {
-                    resultado = (medida + 459.67)*(5/9);
+                    resultado = (medida + 459.67) * (5 / 9);
                     unidadAconvertir = "k";
                     return (resultado + unidadAconvertir);
                 }
+            }
+            else if (unidadDeMedida == 'k')
+                if (unidadAconvertir == 'f') {
+                    resultado = medida*(9/5) - 459.67;
+                    unidadAconvertir = "f";
+                    return (resultado + unidadAconvertir);
+                }
+                else if (unidadAconvertir == 'c') {
+                    resultado =medida - 273.15;
+                    unidadAconvertir = "c";
+                    return (resultado + unidadAconvertir);
+                }
         }
+        return 0;
     }
 }
